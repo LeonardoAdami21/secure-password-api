@@ -11,12 +11,12 @@ const create = async (req, res) => {
     if (!validPassword.validate(req.body.password)) {
       return res
         .status(400)
-        .send({ message: "Password does not meet the requirements" });
+        .json({ message: "Password does not meet the requirements" });
     }
     const createdPassword = await passwordService.create(req.body.password);
-    return res.status(201).send(createdPassword);
+    return res.status(201).json(createdPassword);
   } catch (error) {
-    return res.status(500).send({ message: error.message });
+    return res.status(400).json({ message: error.message });
   }
 };
 
