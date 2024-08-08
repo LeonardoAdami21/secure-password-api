@@ -1,0 +1,48 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Secure Password API",
+    "description": "Api para validar se uma senha e segura",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Leonardo Adami"
+    }
+  },
+  "tags": [
+    {
+      "name": "password",
+      "description": "Endpoints para validar senha"
+    }
+  ],
+  "paths": {
+    "/password": {
+      "post": {
+        "tags": ["password"],
+        "summary": "Validar senha",
+        "description": "Valida se a senha é segura",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Senha válida criada com sucesso"
+          },
+          "400": {
+            "description": "Senha inválida"
+          }
+        }
+      }
+    }
+  }
+}
