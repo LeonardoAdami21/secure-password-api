@@ -15,7 +15,7 @@ datasource db {
 
 model Password {
   id        String   @id @default(uuid())
-  password   String
+  password   String @db.VarChar(200)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
